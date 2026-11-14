@@ -1,0 +1,15 @@
+# SIM Laundry - Requirements
+# Python >= 3.10
+
+customtkinter>=6.0.0
+mysql-connector-python>=8.0.30
+Pillow>=10.0.0
+darkdetect>=0.8.0
+packaging>=21.0
+
+# Testing & Linting (Modul VI, VII, VIII)
+pytest>=7.4.0
+flake8>=6.1.0
+
+# Packaging (Modul VIII)
+pyinstaller>=6.0.0

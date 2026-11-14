@@ -64,6 +64,27 @@ CREATE TABLE `transaksi_laundry` (
   `status_cucian` enum('Antrean','Proses','Selesai','Diambil') DEFAULT 'Antrean'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id_user` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(64) NOT NULL,
+  `role` enum('Admin','User') NOT NULL DEFAULT 'User',
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id_user`, `username`, `password`, `role`) VALUES
+(1, 'atmin', '70304d966de1cd7c53edde50fbab69d551abdfeeb769fbffd67b8e6f602443dc', 'Admin');
+
 --
 -- Indexes for dumped tables
 --
@@ -89,6 +110,13 @@ ALTER TABLE `transaksi_laundry`
   ADD KEY `fk_paket` (`id_paket`);
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id_user`),
+  ADD UNIQUE KEY `uq_username` (`username`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -109,6 +137,12 @@ ALTER TABLE `pelanggan`
 --
 ALTER TABLE `transaksi_laundry`
   MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
